@@ -1,7 +1,7 @@
-#
+
 # Conditional build:
-# _without_tests - do not perform "make test"
-#
+%bcond_without	tests	# do not perform "make test"
+
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Crypt
 %define		pnam	OpenPGP
@@ -14,26 +14,27 @@ License:	Artistic or GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	020141cf2a3c22b50373fc5aeb7914d2
+BuildRequires:	perl-Crypt-DSA
+BuildRequires:	perl-Crypt-RSA
+BuildRequires:	perl-Data-Buffer >= 0.04
 BuildRequires:	perl-devel >= 5.6
+BuildRequires:	perl-Math-Pari
+BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with tests}
 BuildRequires:	perl-Compress-Zlib
 BuildRequires:	perl-Crypt-Blowfish
 BuildRequires:	perl-Crypt-CAST5_PP
 BuildRequires:	perl-Crypt-DES_EDE3
-BuildRequires:	perl-Crypt-DSA
 BuildRequires:	perl-Crypt-IDEA
 BuildRequires:	perl-Crypt-RIPEMD160
-BuildRequires:	perl-Crypt-RSA
 BuildRequires:	perl-Crypt-Rijndael
 BuildRequires:	perl-Crypt-Twofish >= 2.00
-BuildRequires:	perl-Data-Buffer >= 0.04
 BuildRequires:	perl-Digest-MD5
 BuildRequires:	perl-Digest-SHA1
 BuildRequires:	perl-MIME-Base64
-BuildRequires:	perl-Math-Pari
-BuildRequires:	rpm-perlprov >= 4.1-13
+%endif
 Requires:	perl-Data-Buffer >= 0.04
 Requires:	perl-Term-ReadKey
-Requires:	perl-libwww
 Conflicts:	perl-Crypt-Twofish < 2.00
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -67,7 +68,7 @@ Crypt::RIPEMD160 dla RIPE-MD/160).
 	INSTALLDIRS=vendor
 %{__make}
 
-%{!?_without_tests:%{__make} test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
