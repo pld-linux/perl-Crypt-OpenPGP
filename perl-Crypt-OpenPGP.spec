@@ -13,6 +13,7 @@ Release:	2
 License:	Artistic or GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	020141cf2a3c22b50373fc5aeb7914d2
 BuildRequires:	perl-devel >= 5.6
 BuildRequires:	perl-Compress-Zlib
 BuildRequires:	perl-Crypt-Blowfish
