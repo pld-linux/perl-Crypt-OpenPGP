@@ -9,7 +9,7 @@ Summary:	Crypt::OpenPGP Perl module - pure Perl implementation of the OpenPGP st
 Summary(pl):	Modu³ Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
 Name:		perl-Crypt-OpenPGP
 Version:	1.03
-Release:	1
+Release:	2
 License:	Artistic or GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -29,7 +29,7 @@ BuildRequires:	perl-Digest-MD5
 BuildRequires:	perl-Digest-SHA1
 BuildRequires:	perl-MIME-Base64
 BuildRequires:	perl-Math-Pari
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	perl-Data-Buffer >= 0.04
 Requires:	perl-Term-ReadKey
 Requires:	perl-libwww
@@ -62,7 +62,8 @@ Crypt::RIPEMD160 dla RIPE-MD/160).
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL </dev/null
+%{__perl} Makefile.PL </dev/null \
+	INSTALLDIRS=vendor 
 %{__make}
 
 %{!?_without_tests:%{__make} test}
@@ -79,6 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README ToDo
-%{perl_sitelib}/Crypt/OpenPGP.pm
-%{perl_sitelib}/Crypt/OpenPGP
+%{perl_vendorlib}/Crypt/OpenPGP.pm
+%{perl_vendorlib}/Crypt/OpenPGP
 %{_mandir}/man3/*
