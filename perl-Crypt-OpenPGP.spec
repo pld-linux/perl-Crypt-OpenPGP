@@ -18,7 +18,7 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version
 BuildRequires:	perl-Crypt-DSA
 BuildRequires:	perl-Crypt-RSA
 BuildRequires:	perl-Data-Buffer >= 0.04
-BuildRequires:	perl-devel >= 5.6
+BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	perl-Math-Pari
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
