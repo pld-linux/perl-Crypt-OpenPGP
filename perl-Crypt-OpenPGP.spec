@@ -3,8 +3,8 @@
 %bcond_without	tests	# do not perform "make test"
 
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Crypt
-%define	pnam	OpenPGP
+%define		pdir	Crypt
+%define		pnam	OpenPGP
 Summary:	Crypt::OpenPGP Perl module - pure Perl implementation of the OpenPGP standard
 Summary(pl):	Modu³ Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
 Name:		perl-Crypt-OpenPGP
