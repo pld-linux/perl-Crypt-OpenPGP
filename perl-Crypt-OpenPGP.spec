@@ -9,7 +9,7 @@ Summary:	Crypt::OpenPGP Perl module - pure Perl implementation of the OpenPGP st
 Summary(pl):	Modu³ Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
 Name:		perl-Crypt-OpenPGP
 Version:	1.03
-Release:	1
+Release:	2
 License:	Artistic or GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -29,7 +29,7 @@ BuildRequires:	perl-Digest-MD5
 BuildRequires:	perl-Digest-SHA1
 BuildRequires:	perl-MIME-Base64
 BuildRequires:	perl-Math-Pari
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 Requires:	perl-Data-Buffer >= 0.04
 Requires:	perl-Term-ReadKey
 Requires:	perl-libwww
