@@ -6,7 +6,7 @@
 %define		pdir	Crypt
 %define		pnam	OpenPGP
 Summary:	Crypt::OpenPGP Perl module - pure Perl implementation of the OpenPGP standard
-Summary(pl):	Modu³ Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
+Summary(pl.UTF-8):   ModuÅ‚ Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
 Name:		perl-Crypt-OpenPGP
 Version:	1.03
 Release:	4
@@ -50,15 +50,15 @@ Crypt;:Rijndael for Rijndael) and at least one digest Perl module
 (Digest::MD5 for MD5, Digest::SHA1 for SHA1 or Crypt::RIPEMD160 for
 RIPE-MD/160).
 
-%description -l pl
-To jest modu³ Crypt::OpenPGP. Jest on czysto perlow± implementacj±
+%description -l pl.UTF-8
+To jest moduÅ‚ Crypt::OpenPGP. Jest on czysto perlowÄ… implementacjÄ…
 standardu OpenPGP, wraz ze wsparciem dla wszystkich wersji PGP i
-GnuPG. Wymaga co najmniej jednego modu³u Perla z implementacj± szyfru
+GnuPG. Wymaga co najmniej jednego moduÅ‚u Perla z implementacjÄ… szyfru
 symetrycznego (Crypt::DES_EDE3 dla 3DES, Crypt::CAST5_PP dla CAST5,
 Crypt::IDEA dla szyfru IDEA, Crypt::Blowfish dla szyfru Blowfish,
 Crypt::Twofish >= 2.00 dla szyfru Twofish albo Crypt::Rijndale dla
-szyfru Rijndael) oraz co najmniej jednego modu³u z implementacj±
-funkcji skrótu (Digest::MD5 dla MD5, Digest::SHA1 dla SHA1 albo
+szyfru Rijndael) oraz co najmniej jednego moduÅ‚u z implementacjÄ…
+funkcji skrÃ³tu (Digest::MD5 dla MD5, Digest::SHA1 dla SHA1 albo
 Crypt::RIPEMD160 dla RIPE-MD/160).
 
 %prep
