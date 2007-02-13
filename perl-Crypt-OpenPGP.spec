@@ -6,7 +6,7 @@
 %define		pdir	Crypt
 %define		pnam	OpenPGP
 Summary:	Crypt::OpenPGP Perl module - pure Perl implementation of the OpenPGP standard
-Summary(pl.UTF-8):   Moduł Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
+Summary(pl.UTF-8):	Moduł Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
 Name:		perl-Crypt-OpenPGP
 Version:	1.03
 Release:	4
