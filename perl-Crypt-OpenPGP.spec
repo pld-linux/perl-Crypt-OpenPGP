@@ -2,9 +2,9 @@
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Crypt
 %define		pnam	OpenPGP
+%include	/usr/lib/rpm/macros.perl
 Summary:	Crypt::OpenPGP Perl module - pure Perl implementation of the OpenPGP standard
 Summary(pl.UTF-8):	Moduł Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
 Name:		perl-Crypt-OpenPGP
@@ -15,11 +15,12 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	21e5a1a046d6ec2c4ef86b5980dbb96f
+URL:		http://search.cpan.org/dist/Crypt-OpenPGP/
 BuildRequires:	perl-Crypt-DSA
 BuildRequires:	perl-Crypt-RSA
 BuildRequires:	perl-Data-Buffer >= 0.04
-BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	perl-Math-Pari
+BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl-Compress-Zlib
