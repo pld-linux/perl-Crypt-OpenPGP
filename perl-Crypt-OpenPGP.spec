@@ -1,6 +1,6 @@
 
 # Conditional build:
-%bcond_without	tests	# do not perform "make test"
+%bcond_with	tests	# perform "make test"
 
 %define		pdir	Crypt
 %define		pnam	OpenPGP
@@ -8,13 +8,13 @@
 Summary:	Crypt::OpenPGP Perl module - pure Perl implementation of the OpenPGP standard
 Summary(pl.UTF-8):	Moduł Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
 Name:		perl-Crypt-OpenPGP
-Version:	1.06
+Version:	1.12
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	21e5a1a046d6ec2c4ef86b5980dbb96f
+# Source0-md5:	ab55adcc68487b36d8146fa6081f9997
 URL:		http://search.cpan.org/dist/Crypt-OpenPGP/
 BuildRequires:	perl-Crypt-DSA
 BuildRequires:	perl-Crypt-RSA
@@ -23,7 +23,6 @@ BuildRequires:	perl-Math-Pari
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl-Compress-Zlib
 BuildRequires:	perl-Crypt-Blowfish
 BuildRequires:	perl-Crypt-CAST5_PP
 BuildRequires:	perl-Crypt-DES_EDE3
@@ -33,6 +32,7 @@ BuildRequires:	perl-Crypt-Rijndael
 BuildRequires:	perl-Crypt-Twofish >= 2.00
 BuildRequires:	perl-Digest-MD5
 BuildRequires:	perl-Digest-SHA1
+BuildRequires:	perl-IO-Compress
 BuildRequires:	perl-MIME-Base64
 %endif
 Requires:	perl-Data-Buffer >= 0.04
