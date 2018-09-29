@@ -28,7 +28,7 @@ diff -ruN Crypt-OpenPGP-1.12.orig/lib/Crypt/OpenPGP/Util.pm Crypt-OpenPGP-1.12/l
  	my $bits = shift;
 -	if (eval 'require Crypt::Random; 1;') {
 +	if (eval 'require Crypt::OpenSSL::Random; 1;') {
-+		my $hex = unpack('H*', Crypt::OpenSSL::Random::random_bytes(int(($bits + 7) / 8));
++		my $hex = unpack('H*', Crypt::OpenSSL::Random::random_bytes(int(($bits + 7) / 8)));
 +		my $val = Math::BigInt->new("0x$hex");
 +		# Get exactly the correct number of bits.
 +		$val->brsft(8 - ($bits & 7)) if ($bits & 7);
