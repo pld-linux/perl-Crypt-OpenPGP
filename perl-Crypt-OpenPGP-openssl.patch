@@ -1,0 +1,42 @@
+diff -ruN Crypt-OpenPGP-1.12.orig/lib/Crypt/OpenPGP/Util.pm Crypt-OpenPGP-1.12/lib/Crypt/OpenPGP/Util.pm
+--- Crypt-OpenPGP-1.12.orig/lib/Crypt/OpenPGP/Util.pm	2015-08-16 13:28:26.000000000 +0200
++++ Crypt-OpenPGP-1.12/lib/Crypt/OpenPGP/Util.pm	2018-09-29 13:02:24.187621578 +0200
+@@ -2,7 +2,7 @@
+ use strict;
+ 
+ # For some reason, FastCalc causes problems. Restrict to one of these 3 backends
+-use Math::BigInt only => 'Pari,GMP,Calc';
++use Math::BigInt only => 'GMP,Calc';
+ 
+ use vars qw( @EXPORT_OK @ISA );
+ use Exporter;
+@@ -101,7 +101,10 @@
+ 
+ sub get_random_bytes {
+ 	my $length = shift;
+-	if (eval 'require Crypt::Random; 1;') {
++	if (eval 'require Crypt::OpenSSL::Random; 1;') {
++		return Crypt::OpenSSL::Random::random_bytes($length);
++	}
++	elsif (eval 'require Crypt::Random; 1;') {
+ 		return Crypt::Random::makerandom_octet( Length => $length);
+ 	}
+ 	elsif (eval 'require Bytes::Random::Secure; 1;') {
+@@ -114,7 +117,16 @@
+ 
+ sub get_random_bigint {
+ 	my $bits = shift;
+-	if (eval 'require Crypt::Random; 1;') {
++	if (eval 'require Crypt::OpenSSL::Random; 1;') {
++		my $hex = unpack('H*', Crypt::OpenSSL::Random::random_bytes(int(($bits + 7) / 8));
++		my $val = Math::BigInt->new("0x$hex");
++		# Get exactly the correct number of bits.
++		$val->brsft(8 - ($bits & 7)) if ($bits & 7);
++		# Make sure the top bit is set.
++		$val->bior(Math::BigInt->bone->blsft($bits-1));
++		return $val;
++        }
++	elsif (eval 'require Crypt::Random; 1;') {
+ 		my $pari = Crypt::Random::makerandom( Size => $bits, Strength => 0 );
+ 		return Math::BigInt->new($pari);
+ 	}

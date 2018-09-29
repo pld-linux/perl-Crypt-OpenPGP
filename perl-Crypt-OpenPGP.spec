@@ -9,12 +9,13 @@ Summary:	Crypt::OpenPGP Perl module - pure Perl implementation of the OpenPGP st
 Summary(pl.UTF-8):	Moduł Perla Crypt::OpenPGP - czysto perlowa implementacja standardu OpenPGP
 Name:		perl-Crypt-OpenPGP
 Version:	1.12
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	ab55adcc68487b36d8146fa6081f9997
+Patch0:		%{name}-openssl.patch
 URL:		http://search.cpan.org/dist/Crypt-OpenPGP/
 BuildRequires:	perl-Crypt-DSA
 BuildRequires:	perl-Crypt-RSA
@@ -64,6 +65,7 @@ Crypt::RIPEMD160 dla RIPE-MD/160).
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
+%patch0 -p1
 
 %build
 %{__perl} Makefile.PL </dev/null \
@@ -83,6 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/pgplet
 %doc Changes README
 %{perl_vendorlib}/Crypt/OpenPGP.pm
 %{perl_vendorlib}/Crypt/OpenPGP
